@@ -6,20 +6,20 @@ from typing import Dict
 import pickle
 
 def fit_round(server_round: int) -> Dict:
-    """Send round number to client."""
+   
     return {"server_round": server_round}
 
 
 def get_evaluate_fn(model: LogisticRegression, counter):
-    """Return an evaluation function for server-side evaluation."""
+   
 
-    # Load test data here to avoid the overhead of doing it in `evaluate` itself
+    # Load test data here to avoid the overhead of doing it in `evaluate` 
     _, (X_test, y_test) = utils.load_data(client="client1")
 
-    # The `evaluate` function will be called after every round
+  
     def evaluate(server_round, parameters: fl.common.NDArrays, config):
         global counter
-        # Update model with the latest parameters
+      
         from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
         utils.set_model_params(model, parameters)
         preds = model.predict_proba(X_test)
