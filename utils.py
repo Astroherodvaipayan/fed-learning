@@ -39,13 +39,7 @@ def set_model_params(
 
 
 def set_initial_params(model: LogisticRegression):
-    """Sets initial parameters as zeros Required since model params are
-    uninitialized until model.fit is called.
-
-    But server asks for initial parameters from clients at launch. Refer
-    to sklearn.linear_model.LogisticRegression documentation for more
-    information.
-    """
+  
     n_classes = 2
     n_features = 86
 
